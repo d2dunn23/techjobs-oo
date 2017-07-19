@@ -13,6 +13,8 @@ import java.util.ArrayList;
 /**
  * Created by LaunchCode
  */
+
+// all info needed to display the form
 public class JobForm {
 
     @NotNull
@@ -22,26 +24,45 @@ public class JobForm {
     @NotNull
     private int employerId;
 
+    @NotNull
+    private int locationId;
+
+    @NotNull
+    private int coreCompetencyId;
+
+    @NotNull
+    private int positionTypeId;
+
+
     /*
         TODO #3 - Included other fields needed to create a job,
         with correct validation attributes and display names.
-        Don't forget to add getters and setters
+        Don't forget to add getters and setters-DONE
      */
 
     private ArrayList<Employer> employers;
+
+
     private ArrayList<Location> locations;
+
+
     private ArrayList<CoreCompetency> coreCompetencies;
+
     private ArrayList<PositionType> positionTypes;
 
     public JobForm() {
 
         JobData jobData = JobData.getInstance();
 
-        /*
-            TODO #4 - populate the other ArrayList collections needed in the view
+        /* make sure all other array lists are set up properly here so when the form
+         renders they will be displayed properly here
+            TODO #4 - populate the other ArrayList collections needed in the view-DONE
         */
 
         employers = jobData.getEmployers().findAll();
+        locations = jobData.getLocations().findAll();
+        coreCompetencies = jobData.getCoreCompetencies().findAll();
+        positionTypes = jobData.getPositionTypes().findAll();
 
     }
 
@@ -55,6 +76,30 @@ public class JobForm {
 
     public int getEmployerId() {
         return employerId;
+    }
+
+    public int getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(int locationId) {
+        this.locationId = locationId;
+    }
+
+    public int getCoreCompetencyId() {
+        return coreCompetencyId;
+    }
+
+    public void setCoreCompetencyId(int coreCompetencyId) {
+        this.coreCompetencyId = coreCompetencyId;
+    }
+
+    public int getPositionTypeId() {
+        return positionTypeId;
+    }
+
+    public void setPositionTypeId(int positionType) {
+        this.positionTypeId = positionType;
     }
 
     public void setEmployerId(int employerId) {
